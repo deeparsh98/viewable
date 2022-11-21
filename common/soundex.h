@@ -1,0 +1,1 @@
+char* findRelated(char* toCheck);
