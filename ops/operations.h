@@ -1,0 +1,1 @@
+char accs_list_op[128] = "GetAllOptyAccountsListForUser";
