@@ -1,0 +1,14 @@
+CC = gcc
+CFLAGS = -g
+RM = rm -f
+
+
+default: all
+
+all: optmyzr
+
+optmyzr: login.c main.c common/fetch.c ../cJSON/cJSON.c common/utilities.c ops/perform.c ops/basic.c ops/reporting.c common/soundex.c
+	$(CC) $(CFLAGS) -o optmyzr login.c main.c common/fetch.c -lncurses -lcurses -lcurl ../cJSON/cJSON.c common/utilities.c ops/perform.c ops/basic.c ops/reporting.c common/soundex.c
+
+clean veryclean:
+	$(RM) optmyzr
