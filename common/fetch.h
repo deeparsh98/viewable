@@ -22,6 +22,8 @@ char* fetchWithHeaders(char * url, struct curl_httppost* params, int post, char*
 
 size_t response_callback(char* buffer, size_t size,
     size_t nitems, void* userdata);
+
+int downloadFile(char* url, char* filepath);
 #endif
 
 
