@@ -9,6 +9,7 @@
 #include<curses.h>
 #include"ops/perform.h"
 #include"common/utilities.h"
+#include"ops/constants.c"
 
 int free_all(){
     logout();
@@ -16,10 +17,12 @@ int free_all(){
 
 int main(int argc, char *argv[]){
 
+    init();
     if ( (stdscr = initscr()) == NULL ) {
         /* Error handling here */
         exit(EXIT_FAILURE);
     }
+    // setvbuf(stdout, NULL, _IOLBF, 0);
     scrollok(stdscr,TRUE);
     char ** args = (char **)malloc(sizeof(char*) * (argc - 1));
 
@@ -56,7 +59,7 @@ int main(int argc, char *argv[]){
             if(token == NULL){
                 break;
             }
-            dynamicAddStringArr(args, token, &size);
+            args = dynamicAddStringArr(args, token, &size);
         }
         argc = (int)size;
     }
